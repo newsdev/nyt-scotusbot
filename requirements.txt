@@ -1,6 +1,6 @@
 appnope==0.1.0
 backports.ssl-match-hostname==3.4.0.2
-beautifulsoup4==4.4.0
+beautifulsoup4==4.4.1
 decorator==4.0.4
 docopt==0.6.2
 docutils==0.12
@@ -13,8 +13,8 @@ lockfile==0.10.2
 lxml==3.4.4
 nameparser==0.3.10
 numpy==1.9.3
--e git+git@github.com:newsdev/nyt-clerk.git@9ab6d6dc642cf368ce3d6c1607963087c32f579f#egg=nyt_clerk-master
--e git+git@github.com:newsdev/nyt-docket.git@5266e420749768b82499fd7d09c8e9b601b6614b#egg=nyt_docket-master
+-e git+git@github.com:newsdev/nyt-clerk.git#egg=nyt_clerk-master
+-e git+git@github.com:newsdev/nyt-docket.git#egg=nyt_docket-master
 path.py==8.1.2
 pdfminer==20140328
 pexpect==4.0
