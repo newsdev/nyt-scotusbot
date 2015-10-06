@@ -1,4 +1,4 @@
-# NYT-SCOTUSBOT
+![](https://cloud.githubusercontent.com/assets/109988/10309923/32507b92-6c0d-11e5-8ae9-5bb0ca46077e.png)
 
 ## Getting started
 
