@@ -1,4 +1,5 @@
 ![](https://cloud.githubusercontent.com/assets/109988/10309923/32507b92-6c0d-11e5-8ae9-5bb0ca46077e.png)
+
 A Python-based SlackBot derived from [SlackHQ's](https://github.com/slackhq/) remarkable [RTMBot](https://github.com/slackhq/python-rtmbot)
 
 ## Getting started
