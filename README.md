@@ -1,7 +1,6 @@
 # NYT-SCOTUSBOT
 
-## BOOTSTRAP
-To get nyt-scotusbot running on your local machine, follow these steps.
+## Getting started
 
 * This bot uses MongoDB instead of the filesystem for persistence. You can install MongoDB locally (default) or export `SCOTUSBOT_MONGO_URL` with your custom connection string.
 ```
@@ -35,3 +34,14 @@ python -m scotusbot.bot
 ```
 tail -f /tmp/scotusbot.log
 ``` 
+
+* To kill the bot, kill its process (should fix this).
+```
+ps aux | grep bot
+
+jbowers         47764   1.1  0.3  2518012  45180   ??  S     9:17AM   0:03.95 python -m scotusbot.bot
+jbowers         47938   0.0  0.0  2432772    648 s006  S+    9:21AM   0:00.00 grep bot
+jbowers         47760   0.0  0.0  2432760    540 s007  S+    9:17AM   0:00.01 tail -f scotusbot.log
+
+kill -9 47764
+```
