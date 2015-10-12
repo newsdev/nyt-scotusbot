@@ -22,12 +22,6 @@ export CAMPFINBOT_SLACK_CHANNEL=C012345
 export CAMPFINBOT_SLACK_TOKEN=ABCEFGHIJKLMNOPQRSTUVWXYZ01234567890
 ```
 
-* Export the hosts for preloaded data.
-```
-CAMPFINBOT_CANDIDATES_HOST=interactive-api.newsdev.nytimes.com
-CAMPFINBOT_FILINGS_HOST=projects.nytimes.com
-```
-
 * Create the log file if it doesn't exist.
 ```
 touch /tmp/scotusbot.log
