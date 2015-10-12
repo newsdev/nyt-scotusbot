@@ -13,9 +13,9 @@ from scotusbot import utils
 # Preload grants.
 s = grants.Load(terms=[int(clerk_utils.current_term())])
 s.scrape()
-print [m for m in utils.load_cases(scotusbot.MONGODB_DATABASE.grants, s.cases, "GRANTED", "question_url")]
+utils.load_cases(scotusbot.MONGODB_DATABASE.grants, s.cases, "GRANTED", "question_url")
 
 # Preload slip opinions.
 o = slipopinions.Load(terms=[int(clerk_utils.current_term())])
 o.scrape()
-print [m for m in utils.load_cases(scotusbot.MONGODB_DATABASE.slipopinions, o.cases, "DECIDED", "opinion_pdf_url")]
+utils.load_cases(scotusbot.MONGODB_DATABASE.slipopinions, o.cases, "DECIDED", "opinion_pdf_url")
