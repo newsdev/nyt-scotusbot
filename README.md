@@ -16,15 +16,26 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 mkvirtualenv nyt-scotusbot && pip install -r requirements.txt
 ```
 
-* Create a bot integration for your ScotusBot and get the [channel ID](https://api.slack.com/methods/channels.list/test).
+* Create a bot integration for your scotusbot and get the [channel ID](https://api.slack.com/methods/channels.list/test). Then export the channel ID and the token.
 ```
-export SCOTUSBOT_SLACK_CHANNEL=C012345
-export SCOTUSBOT_SLACK_TOKEN=ABCEFGHIJKLMNOPQRSTUVWXYZ01234567890
+export CAMPFINBOT_SLACK_CHANNEL=C012345
+export CAMPFINBOT_SLACK_TOKEN=ABCEFGHIJKLMNOPQRSTUVWXYZ01234567890
+```
+
+* Export the hosts for preloaded data.
+```
+CAMPFINBOT_CANDIDATES_HOST=interactive-api.newsdev.nytimes.com
+CAMPFINBOT_FILINGS_HOST=projects.nytimes.com
 ```
 
 * Create the log file if it doesn't exist.
 ```
 touch /tmp/scotusbot.log
+```
+
+* Preload data for the bot. It needs to get loaded with old cases (grants and opinions) so it doesn't spam your slack channel with stuff you already know about.
+```
+python -m scotusbot.preload
 ```
 
 * Run the bot itself.
@@ -37,13 +48,20 @@ python -m scotusbot.bot
 tail -f /tmp/scotusbot.log
 ``` 
 
-* To kill the bot, kill its process (should fix this).
+## Deployment
+### Ubuntu Linux
+* Make an Upstart script in `/etc/init/scotusbot.conf` and use this template.
 ```
-ps aux | grep bot
+start on runlevel [2345]
+stop on runlevel [!2345]
 
-jbowers         47764   1.1  0.3  2518012  45180   ??  S     9:17AM   0:03.95 python -m scotusbot.bot
-jbowers         47938   0.0  0.0  2432772    648 s006  S+    9:21AM   0:00.00 grep bot
-jbowers         47760   0.0  0.0  2432760    540 s007  S+    9:17AM   0:00.01 tail -f scotusbot.log
+respawn
 
-kill -9 47764
+script
+  export SCOTUSBOT_SLACK_CHANNEL='C012345'
+  export SCOTUSBOT_SLACK_TOKEN='xoxb-1234567890-AbcDefGhijkLmNOpQRstUvWXyz'
+  export SCOTUSBOT_PRD_HOST='ec2-0-0-0-0.compute-99.amazonaws.com'
+  export SCOTUSBOT_MONGO_URL='127.0.0.1:12345'
+  cd /home/ubuntu/nyt-scotusbot && /home/ubuntu/.virtualenvs/nyt-scotusbot/bin/python /home/ubuntu/nyt-scotusbot/scotusbot/bot.py
+end script
 ```

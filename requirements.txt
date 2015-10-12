@@ -4,6 +4,8 @@ beautifulsoup4==4.4.1
 decorator==4.0.4
 docopt==0.6.2
 docutils==0.12
+ecdsa==0.13
+Fabric==1.10.2
 gnureadline==6.3.3
 html5lib==0.999999
 humanize==0.5.1
@@ -13,15 +15,16 @@ lockfile==0.10.2
 lxml==3.4.4
 nameparser==0.3.10
 numpy==1.9.3
--e git+git@github.com:newsdev/nyt-clerk.git#egg=nyt_clerk-master
--e git+git@github.com:newsdev/nyt-docket.git#egg=nyt_docket-master
+-e git+git@github.com:newsdev/nyt-clerk.git#egg=nyt_clerk
+-e git+git@github.com:newsdev/nyt-docket.git#egg=nyt_docket
+paramiko==1.15.3
 path.py==8.1.2
 pdfminer==20140328
 pexpect==4.0
 pickleshare==0.5
 ptyprocess==0.5
-pymongo==3.0.3
-python-daemon==2.0.5
+pycrypto==2.6.1
+pymongo==2.8
 requests==2.7.0
 simplegeneric==0.8.1
 six==1.9.0
