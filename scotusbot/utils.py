@@ -12,6 +12,6 @@ def load_cases(collection, cases, verb, detail_field, alert=False):
             collection.insert(case.__dict__)
             if alert:
                 message = "*%s: %s*\n%s\n%s" % (verb, case.docket, case.casename, getattr(case, detail_field))
-                messages.append([scotusbot.CHANNEL,message])
+                messages.append(message)
 
     return messages
