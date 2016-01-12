@@ -6,7 +6,7 @@ from scotusbot import utils
 
 outputs = []
 crontable = []
-crontable.append([30, "load_orders"])
+crontable.append([60, "load_orders"])
 
 def load_orders():
     o = orders.Load(terms=[int(clerk_utils.current_term())])
