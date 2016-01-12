@@ -39,7 +39,7 @@ class RtmBot(object):
             self.crons()
             self.output()
             self.autoping()
-            time.sleep(.1)
+            time.sleep(.5)
 
     def autoping(self):
         now = int(time.time())
@@ -62,7 +62,7 @@ class RtmBot(object):
                 channel = self.slack_client.server.channels.find(output[0])
                 if channel != None and output[1] != None:
                     if limiter == True:
-                        time.sleep(.1)
+                        time.sleep(.5)
                         limiter = False
                     message = output[1].encode('ascii','ignore')
                     channel.send_message("{}".format(message))
